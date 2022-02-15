@@ -1,1 +1,5 @@
-<p>input works!</p>
+<div [formGroup]="parent" class="mb-3">
+    <label [for]="name">{{ label }}</label>
+    <input class="block transition-colors w-full py-2 px-4 rounded-sm bg-brand-50 border-2 border-brand-200/30 hover:border-brand-200/60 focus:border-brand-400 outline-none placeholder:text-body/30 text-body font-medium text-md" [type]="type" [value]="value"
+        [formControlName]="name" [placeholder]="placeholder" />
+</div>

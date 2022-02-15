@@ -1,0 +1,59 @@
+:host {
+  @apply block;
+}
+
+.button {
+  @apply block transition-colors text-white font-medium  px-4 py-2.5 rounded-sm;
+}
+
+.block {
+  @apply w-full;
+}
+
+.brand {
+  &.filled {
+    @apply bg-brand-400 active:bg-brand-400/90 hover:bg-brand-500/90;
+  }
+  &.outlined {
+    @apply bg-transparent hover:bg-brand-400/90 hover:text-white hover:border-transparent border-2 text-brand-300 border-brand-300 active:bg-brand-400;
+  }
+  &.raised {
+    @apply bg-brand-100 shadow-sm shadow-brand-200/50 hover:bg-brand-400/90 hover:text-white text-brand-400 border-brand-300 active:bg-brand-400;
+  }
+}
+
+.success {
+  &.filled {
+    @apply bg-green-400 active:bg-green-400/90 hover:bg-green-500/90;
+  }
+  &.outlined {
+    @apply bg-transparent hover:bg-green-400/90 hover:text-white hover:border-transparent border-2 text-green-300 border-green-300 active:bg-green-400;
+  }
+  &.raised {
+    @apply bg-green-100 shadow-sm shadow-green-200/50 hover:bg-green-400/90 hover:text-white text-green-400 border-green-300 active:bg-green-400;
+  }
+}
+
+.danger {
+  &.filled {
+    @apply bg-red-400 active:bg-red-400/90 hover:bg-red-500/90;
+  }
+  &.outlined {
+    @apply bg-transparent hover:bg-red-400/90 hover:text-white hover:border-transparent border-2 text-red-300 border-red-300 active:bg-red-400;
+  }
+  &.raised {
+    @apply bg-red-100 shadow-sm shadow-red-200/50 hover:bg-red-400/90 hover:text-white text-red-400 border-red-300 active:bg-red-400;
+  }
+}
+
+.black {
+  &.filled {
+    @apply bg-gray-400 active:bg-gray-400/90 hover:bg-gray-500/90;
+  }
+  &.outlined {
+    @apply bg-transparent hover:bg-gray-400/90 hover:text-white hover:border-transparent border-2 text-gray-300 border-gray-300 active:bg-gray-400;
+  }
+  &.raised {
+    @apply bg-gray-100 shadow-sm shadow-gray-200/50 hover:bg-gray-400/90 hover:text-white text-gray-400 border-gray-300 active:bg-gray-400;
+  }
+}
