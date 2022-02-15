@@ -1,5 +1,8 @@
 <div class="flex h-screen">
   <app-card class="m-auto lg:h-[650px] w-full min-h-3/5 lg:w-1/2 sm:w-3/4 p-4">
+
+
+
     <div class="flex md:flex-row flex-col h-full">
       <div class="md:h-full h-32 md:w-2/3 w-full">
         <img
@@ -31,15 +34,18 @@
               type="password"
               [parent]="loginForm"
             ></app-input>
+
+            <span class="text-red-500 font-medium" >Correo o contraseña incorrectos</span>
           </div>
 
           <app-button
             [block]="true"
             type="submit"
             title="Iniciar Sesión"
+            [disabled]="!loginForm.valid"
           ></app-button>
         </form>
-        <hr class="bg-brand" />
+        <hr />
         <div class="mt-4">
           <p class="my-2">¿No tienes cuenta? <a href="#!" class="font-bold">Regístrate aqui</a></p>
           <p class="my-2"><a href="#!">Olvidé mi contraseña</a></p>

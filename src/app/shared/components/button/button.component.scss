@@ -20,6 +20,9 @@
   &.raised {
     @apply bg-brand-100 shadow-sm shadow-brand-200/50 hover:bg-brand-400/90 hover:text-white text-brand-400 border-brand-300 active:bg-brand-400;
   }
+  &:disabled {
+    @apply bg-brand-200 hover:bg-brand-200/80 active:bg-brand-200/80;
+  }
 }
 
 .success {
@@ -31,6 +34,9 @@
   }
   &.raised {
     @apply bg-green-100 shadow-sm shadow-green-200/50 hover:bg-green-400/90 hover:text-white text-green-400 border-green-300 active:bg-green-400;
+  }
+  &:disabled {
+    @apply bg-green-200 hover:bg-green-200/80 active:bg-green-200/80;
   }
 }
 
@@ -44,6 +50,9 @@
   &.raised {
     @apply bg-red-100 shadow-sm shadow-red-200/50 hover:bg-red-400/90 hover:text-white text-red-400 border-red-300 active:bg-red-400;
   }
+  &:disabled {
+    @apply bg-red-200 hover:bg-red-200/80 active:bg-red-200/80;
+  }
 }
 
 .black {
@@ -55,5 +64,8 @@
   }
   &.raised {
     @apply bg-gray-100 shadow-sm shadow-gray-200/50 hover:bg-gray-400/90 hover:text-white text-gray-400 border-gray-300 active:bg-gray-400;
+  }
+  &:disabled {
+    @apply bg-gray-200 hover:bg-gray-200/80 active:bg-gray-200/80;
   }
 }
