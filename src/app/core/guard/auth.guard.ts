@@ -12,7 +12,7 @@ export class AuthGuard implements CanLoad {
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
 
-    this.router.navigateByUrl('/auth/login');
+    // this.router.navigateByUrl('/auth/login');
     return true;
   }
 }
