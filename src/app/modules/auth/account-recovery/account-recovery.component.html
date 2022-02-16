@@ -11,7 +11,9 @@
       <div class="w-full px-12 py-12 self-center flex flex-col">
         <div class="mb-4">
           <h4 class="font-extrabold text-3xl text-brand">Recuperar cuenta</h4>
-          <p class="font-light text-gray-600">Escribe tu correo y te enviaremos un enlace de recuperación.</p>
+          <p class="font-light text-gray-600">
+            Escribe tu correo y te enviaremos un enlace de recuperación.
+          </p>
         </div>
         <form
           class="w-full py-8"
@@ -26,16 +28,19 @@
               [parent]="accountRecoveryForm"
             ></app-input>
 
-            <span class="text-red-500 font-medium"
-              >Correo o contraseña incorrectos</span
-            >
+            <ng-container *ngIf="errorMessage">
+              <span class="text-red-500 font-medium transition-all"
+                >{{ errorMessage }}
+              </span>
+            </ng-container>
           </div>
 
           <app-button
             [block]="true"
             type="submit"
             [disabled]="!accountRecoveryForm.valid"
-          >Enviar Enlace</app-button>
+            >Enviar Enlace</app-button
+          >
         </form>
         <hr />
         <div class="mt-4">

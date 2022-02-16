@@ -1,0 +1,9 @@
+<div [ngSwitch]="mode">
+  <div *ngSwitchCase="'resetPassword'">
+    <app-reset-password></app-reset-password>
+  </div>
+  <div *ngSwitchCase="'verifyEmail'">
+    <app-reset-password></app-reset-password>
+  </div>
+  <div *ngSwitchDefault>Error</div>
+</div>
