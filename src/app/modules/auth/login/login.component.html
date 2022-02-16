@@ -32,16 +32,16 @@
               [parent]="loginForm"
             ></app-input>
 
-            <span class="text-red-500 font-medium"
-              >Correo o contraseña incorrectos</span
-            >
+            <ng-container *ngIf="errorMessage">
+              <span class="text-red-500 font-medium transition-all"
+              >{{errorMessage}}
+            </span>
+            </ng-container>
           </div>
 
-          <app-button
-            [block]="true"
-            type="submit"
-            [disabled]="!loginForm.valid"
-          >Iniciar Sesión</app-button>
+          <app-button [loading]="loading" [block]="true" type="submit" [disabled]="!loginForm.valid"
+            >Iniciar Sesión</app-button
+          >
         </form>
         <hr />
         <div class="mt-4">
@@ -51,7 +51,11 @@
               >Regístrate aqui</a
             >
           </p>
-          <p class="my-2"><a [routerLink]="['../', 'account-recovery']">Olvidé mi contraseña</a></p>
+          <p class="my-2">
+            <a [routerLink]="['../', 'account-recovery']"
+              >Olvidé mi contraseña</a
+            >
+          </p>
         </div>
       </div>
     </div>
