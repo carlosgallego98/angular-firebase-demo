@@ -19,4 +19,42 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get isValid() {
+    return this.parent.controls[this.name].valid;
+  }
+
+  get isTouched() {
+    return this.parent.controls[this.name].touched;
+  }
+
+  errorMessage() {
+    if (this.isTouched) {
+      if (this.parent.controls[this.name].hasError('required')) {
+        return 'Este campo es requerido';
+      }
+      if (this.parent.controls[this.name].hasError('email')) {
+        return 'Este campo no es un email válido';
+      }
+      if (this.parent.controls[this.name].hasError('minlength')) {
+        const minLength = this.parent.controls[this.name].errors?.['minlength'].requiredLength;
+        return 'Este campo debe ser al menos de ' + minLength + ' caracteres';
+      }
+      if (this.parent.controls[this.name].hasError('maxlength')) {
+        const minLength = this.parent.controls[this.name].errors?.['minLength'].requiredLength;
+        return 'Este campo debe tener mínimo ' + minLength + ' caracteres';
+      }
+      if (this.parent.controls[this.name].hasError('pattern')) {
+        return 'This field must be a valid url';
+      }
+      if (this.parent.controls[this.name].hasError('email-taken')) {
+        return 'Este correo electrónico ya está ocupado';
+      }
+    }
+
+    // Para la validación de la contraseña
+    if (this.parent.controls[this.name].hasError('equalTo')) {
+      return 'La confirmación debe ser igual a la contraseña';
+    }
+    return '';
+  }
 }
