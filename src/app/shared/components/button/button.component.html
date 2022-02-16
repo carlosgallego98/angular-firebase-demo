@@ -1,3 +1,12 @@
-<button [disabled]="disabled" class="button {{ color }} {{ mode }}" [ngClass]="{'block': block}" [type]="type">
-  {{ title }}
+<button
+  [disabled]="disabled || loading"
+  class="button {{ color }} {{ mode }}"
+  [ngClass]="{ 'w-full': block }"
+  [type]="type"
+>
+  <div class="flex flex-row gap-1  items-center">
+    <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+    <i *ngIf="icon && !loading" class="fa fa-{{ icon }}"></i>
+    <ng-content></ng-content>
+  </div>
 </button>

@@ -1,13 +1,9 @@
-:host {
-  @apply block;
+:host.b-block {
+  @apply block w-full;
 }
 
 .button {
-  @apply block transition-colors text-white font-medium  px-4 py-2.5 rounded-sm;
-}
-
-.block {
-  @apply w-full;
+  @apply block transition-colors text-white font-medium px-4 py-2.5 rounded-sm;
 }
 
 .brand {
@@ -36,7 +32,7 @@
     @apply bg-green-100 shadow-sm shadow-green-200/50 hover:bg-green-400/90 hover:text-white text-green-400 border-green-300 active:bg-green-400;
   }
   &:disabled {
-    @apply bg-green-200 hover:bg-green-200/80 active:bg-green-200/80;
+    @apply bg-green-300 hover:bg-green-300/80 active:bg-green-300/80;
   }
 }
 
@@ -51,7 +47,7 @@
     @apply bg-red-100 shadow-sm shadow-red-200/50 hover:bg-red-400/90 hover:text-white text-red-400 border-red-300 active:bg-red-400;
   }
   &:disabled {
-    @apply bg-red-200 hover:bg-red-200/80 active:bg-red-200/80;
+    @apply bg-red-300 hover:bg-red-300/80 active:bg-red-300/80;
   }
 }
 
@@ -66,6 +62,6 @@
     @apply bg-gray-100 shadow-sm shadow-gray-200/50 hover:bg-gray-400/90 hover:text-white text-gray-400 border-gray-300 active:bg-gray-400;
   }
   &:disabled {
-    @apply bg-gray-200 hover:bg-gray-200/80 active:bg-gray-200/80;
+    @apply bg-gray-300 hover:bg-gray-300/80 active:bg-gray-300/80;
   }
 }
