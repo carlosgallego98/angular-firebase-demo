@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    if(this.loginForm.invalid) return;
     this.loading = true;
     const { email, password } = this.loginForm.value;
     this.authService.loginWithEmailAndPassword(email, password)

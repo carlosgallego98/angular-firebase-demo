@@ -1,4 +1,4 @@
-<div class="flex flex-col justify-between h-full">
+<div class="flex flex-col justify-between h-full overflow-x-hidden">
   <div>
     <div class="flex items-center gap-2 text-center px-8 py-12">
       <i
@@ -8,7 +8,7 @@
     </div>
     <ul class="sidebar-nav">
       <li>
-        <a [routerLink]="['../dashboard']">
+        <a [routerLink]="['home']" routerLinkActive="active">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
@@ -27,7 +27,7 @@
         </a>
       </li>
       <li>
-        <a [routerLink]="['contacts']">
+        <a [routerLink]="['contacts']" routerLinkActive="active">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
@@ -46,7 +46,7 @@
         </a>
       </li>
       <li>
-        <a [routerLink]="['tags']">
+        <a [routerLink]="['tags']" routerLinkActive="active">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
@@ -66,23 +66,27 @@
       </li>
     </ul>
   </div>
+
   <div>
     <div class="mx-4 flex h-16 w-16 items-center relative">
       <img
         class="rounded-full object-cover shadow-md shadow-brand-200"
-        src="https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F1013617--20BCF2F1-6E26-41D8-B17AE7D992CE23A8--1542705191879--ThingsThumbnailSQUARE.jpg?fm=jpg&q=75&w=800&s=067111e7d4669e2ff1b41fb913dea63e"
+        [src]="
+          user.photoURL ? user.photoURL: 'https://avatars.dicebear.com/api/big-ears-neutral/{{ user.uid }}.svg'
+
+        "
         alt=""
       />
-      <div class="ml-4 flex flex-col">
-        <h4 class="text-md font-bold text-brand-400">Maria Doe</h4>
-        <p class="text-sm text-gray-400">mariadoe@example.org</p>
+      <div class="ml-4 flex flex-col ">
+        <h4 class="text-md font-bold text-brand-400">{{ user.displayName }}</h4>
+        <p class="text-sm text-gray-400">{{ user.email }}</p>
       </div>
     </div>
 
     <div class="py-4">
       <ul class="sidebar-nav">
         <li>
-          <a class="cursor-pointer" (click)="(null)">
+          <a class="cursor-pointer" routerLink="me">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"

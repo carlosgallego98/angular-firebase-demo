@@ -26,7 +26,7 @@ export class FirebaseErrors {
         break;
       case 'auth/user-not-found':
         message =
-          'No0 hemos encontrado un usuario relacionado con este correo electrónico o número de teléfono';
+          'No hemos encontrado un usuario relacionado con este correo electrónico o número de teléfono';
         break;
       case 'auth/phone-number-already-exists':
         message = 'El número ya se encuentra en uso por otro usuario';

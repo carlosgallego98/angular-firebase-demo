@@ -30,7 +30,9 @@ export class RegisterComponent implements OnInit {
     this.loading = true;
     const { name, email, password } = this.registerForm.value;
     this.authService.registerWithEmailAndPassword(name, email, password)
-      .then((result) => this.router.navigate(['./dashboard'])
+      .then((result) => {
+        this.router.navigate(['./dashboard']);
+      }
       )
       .catch((error: AuthError) => {
         switch (error.code) {
