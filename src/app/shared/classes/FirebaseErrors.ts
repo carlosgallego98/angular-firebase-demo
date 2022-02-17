@@ -5,43 +5,43 @@ export class FirebaseErrors {
 
     switch (errorCode) {
       case 'auth/wrong-password':
-        message = 'Invalid login credentials.';
+        message = 'Correo o contraseña incorrectos.';
         break;
       case 'auth/network-request-failed':
-        message = 'Please check your internet connection';
+        message = 'No tienes conexión a internet';
         break;
       case 'auth/too-many-requests':
         message =
-          'We have detected too many requests from your device. Take a break please!';
+          'Hemos detectado mucho tráfico desde tu dispositivo, descansa un rato por favor';
         break;
       case 'auth/user-disabled':
         message =
-          'Your account has been disabled or deleted. Please contact the system administrator.';
+          'Tu cuenta se ha deshabilitado, porfavor contacta con el administrador';
         break;
       case 'auth/requires-recent-login':
-        message = 'Please login again and try again!';
+        message = 'Inicia sesión e inténtalo de nuevo';
         break;
       case 'auth/email-already-exists':
-        message = 'Email address is already in use by an existing user.';
+        message = 'El correo electrónico ya se encuentra en uso por otro usuario.';
         break;
       case 'auth/user-not-found':
         message =
-          'We could not find user account associated with the email address or phone number.';
+          'No0 hemos encontrado un usuario relacionado con este correo electrónico o número de teléfono';
         break;
       case 'auth/phone-number-already-exists':
-        message = 'The phone number is already in use by an existing user.';
+        message = 'El número ya se encuentra en uso por otro usuario';
         break;
       case 'auth/invalid-phone-number':
-        message = 'The phone number is not a valid phone number!';
+        message = 'Este no es un número de teléfono válido porfavor revísalo';
         break;
       case 'auth/invalid-email  ':
-        message = 'The email address is not a valid email address!';
+        message = 'Este no es un correo electrónico válido porfavor revísalo';
         break;
       case 'auth/cannot-delete-own-user-account':
-        message = 'You cannot delete your own user account.';
+        message = 'No puedes eliminar tu propia cuenta.';
         break;
       default:
-        message = 'Oops! Something went wrong. Try again later.';
+        message = 'Algo salió mal y no sabemos que es, intentalo de nuevo';
         break;
     }
 
