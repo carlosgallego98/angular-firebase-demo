@@ -17,6 +17,7 @@ export class InputComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.label = this.placeholder;
   }
 
   get isValid() {

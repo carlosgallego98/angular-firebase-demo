@@ -15,10 +15,10 @@ export class AuthService {
   }
 
   async loginWithEmailAndPassword(email: string, password: string) {
-    return await signInWithEmailAndPassword(this.auth, email, password)
-      .then((result) => {
-        this.setUserData(result.user);
-      });
+    return await signInWithEmailAndPassword(this.auth, email, password);
+      // .then((result) => {
+      //   this.setUserData(result.user);
+      // });
   }
 
   async registerWithEmailAndPassword(name: string, email: string, password: string) {

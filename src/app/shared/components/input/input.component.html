@@ -1,17 +1,27 @@
 <div [formGroup]="parent" class="mb-3">
-  <label class="text-gray-800 text-md" [for]="name">{{ label }}</label>
-  <input
-    class="block transition-colors w-full py-2 px-4 rounded-sm bg-brand-50 border-2 border-brand-200/30 hover:border-brand-200/60 focus:border-brand-400 outline-none placeholder:text-body/30 text-body font-medium text-md"
-    [type]="type"
-    [value]="value"
-    [formControlName]="name"
-    [placeholder]="placeholder"
-  />
 
-  <div
-    *ngIf="!isValid && isTouched"
-    class="text-sm error-message bg-red-100 border-red-400 text-red-700 px-2 py-1 rounded-b-md"
-  >
-    {{ errorMessage() }}
+  <div class="relative w-full appearance-none label-floating">
+    <input
+      class="tracking-wide leading-relaxed appearance-none block w-full transition-colors py-2 px-4 rounded-sm bg-brand-50 border-2 border-brand-200/30 hover:border-brand-200/60 focus:border-brand-400 outline-none placeholder:text-body/30 text-body font-medium text-md"
+      [type]="type"
+      [value]="value"
+      [formControlName]="name"
+      [placeholder]="placeholder"
+      [id]="name"
+    />
+
+    <label
+      [for]="name"
+      class="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text"
+    >
+      {{ label }}
+    </label>
+
+    <div
+      *ngIf="!isValid && isTouched"
+      class="text-sm error-message bg-red-100 border-red-400 text-red-700 px-2 py-1 rounded-b-md"
+    >
+      {{ errorMessage() }}
+    </div>
   </div>
 </div>
