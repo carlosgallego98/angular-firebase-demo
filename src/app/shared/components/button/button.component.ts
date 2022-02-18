@@ -1,5 +1,6 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
-
+import { faSpinner, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { HeroIconName } from 'ng-heroicon';
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
@@ -7,10 +8,13 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
+  faSpinner = faSpinner;
+
+
   @Input() mode: 'filled' | 'outlined' | 'raised' = "filled";
   @Input() color: 'success' | 'brand' | 'danger' | 'black' = "brand";
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
-  @Input() icon!: string;
+  @Input() icon!: HeroIconName;
   @HostBinding('class.b-block')
   @Input() block: boolean = false;
   @Input() disabled: boolean = false;

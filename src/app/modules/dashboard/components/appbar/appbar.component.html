@@ -1,0 +1,17 @@
+<div class="w-full bg-brand-200 h-16 flex items-center justify-between">
+  <ul class="sidebar-nav">
+    <li class="navitem">
+      <a class="navlink" (click)="collapsedSidebarToggle()">
+        <hero-icon
+          [name]="'chevron-double-left'"
+          [ngClass]="{ '-rotate-180 ': collapsed }"
+          class="h-6 w-6 transition-all transform"
+        ></hero-icon>
+      </a>
+    </li>
+  </ul>
+
+  <div class="mx-4">
+    Otras cosas
+  </div>
+</div>

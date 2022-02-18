@@ -5,11 +5,19 @@
   [type]="type"
 >
   <div class="flex flex-row gap-1 justify-center items-center">
-    <i
-      *ngIf="icon || loading"
-      class="fa fa-{{ icon }}"
-      [ngClass]="{ 'fa fa-spinner fa-spin': loading }"
-    ></i>
-    <ng-content></ng-content>
+    <hero-icon
+      *ngIf="icon && !loading"
+      [name]="icon"
+      [type]="'solid'"
+      [class]="'w-4 h-4 animate-spin'"
+    ></hero-icon>
+    <hero-icon
+      *ngIf="loading"
+      [name]="'refresh'"
+      [type]="'outline'"
+      [class]="'w-4 h-4 animate-spin'"
+    ></hero-icon>
+
+    <ng-content *ngIf="!loading"></ng-content>
   </div>
 </button>

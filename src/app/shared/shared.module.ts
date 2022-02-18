@@ -5,8 +5,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from './components/input/input.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { refresh, HeroIconModule } from 'ng-heroicon';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HeroIconModule.forRoot({
+      refresh
+  }, {
+      defaultHostDisplay: 'inlineBlock', // default 'none'
+      attachDefaultDimensionsIfNoneFound: true // default 'false'
+  })
   ],
   exports: [
     CardComponent,
