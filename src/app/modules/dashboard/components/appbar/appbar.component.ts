@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, ChangeDetectionStrategy, Output, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { User } from '@angular/fire/auth';
 import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
@@ -7,20 +8,24 @@ import { SidebarService } from '../../services/sidebar.service';
   styleUrls: ['./appbar.component.scss'],
 })
 export class AppbarComponent implements OnInit {
-  collapsed!: boolean;
-
+  public collapsed!: boolean;
+  @Input() user!: User;
+  @Output() logOut = new EventEmitter();
   constructor(private sidebarService: SidebarService) {
-    this.sidebarService.collapsedSidebar.subscribe((value) => {
-      this.collapsed = value;
-    });
   }
 
   ngOnInit(): void {
-
+    this.sidebarService.getCollapsedState().subscribe((value) => {
+      this.collapsed = value;
+    });
   }
 
   collapsedSidebarToggle() {
     this.collapsed = !this.collapsed;
     this.sidebarService.toggleSidebar(this.collapsed);
+  }
+
+  logOutEvent() {
+    this.logOut.emit();
   }
 }

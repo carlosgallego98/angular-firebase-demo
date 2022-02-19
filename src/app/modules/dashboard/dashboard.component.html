@@ -1,7 +1,10 @@
-<div class="flex min-h-screen">
-  <app-sidebar></app-sidebar>
+<app-bar [user]="user" (logOut)="logOut()"></app-bar>
+<div class="lg:flex">
+  <app-sidebar
+    [collapsed]="collapsed"
+    (toggleCollapsed)="toggleCollapsed($event)"
+  ></app-sidebar>
   <div class="flex-1">
-    <app-bar></app-bar>
     <router-outlet></router-outlet>
   </div>
 </div>

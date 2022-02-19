@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-demo-9ca55": {
+      "hosting": {
+        "firebase-demo": [
+          "my-demo-9ca55"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-demo-9ca55"
+  }
+}

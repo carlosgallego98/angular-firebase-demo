@@ -1,39 +1,21 @@
-<div
-  class="flex flex-col justify-between h-full overflow-x-hidden  bg-white rounded-br-xl"
+<aside
+  class="flex w-72 flex-col justify-between overflow-x-hidden bg-white rounded-br-xl shadow-md shadow-brand-800/40 z-0"
   id="sidebar"
-  [ngClass]="{ collapsed: collapsed, 'full-width': collapsed == false }"
 >
-  <div>
-
-    <div class="flex text-center px-5 h-16 mb-8 sidebar-brand bg-brand-300">
-      <div class="m-auto flex items-center gap-2">
-        <i
-          class="fa-solid fa-layer-group bg-white p-2.5 text-lg rounded-md text-brand"
-        ></i>
-      </div>
-    </div>
+  <div class="mt-20">
 
     <ul class="sidebar-nav">
-      <li class="navitem">
-        <a class="navlink" [routerLink]="['home']" routerLinkActive="active">
-          <hero-icon name="home" class="h-6 w-6"></hero-icon>
-          <span class="ml-2.5">Inicio</span>
-        </a>
-      </li>
-      <li class="navitem">
+      <li
+        class="navitem"
+        *ngFor="let link of links"
+      >
         <a
           class="navlink"
-          [routerLink]="['contacts']"
+          [routerLink]="[link.route]"
           routerLinkActive="active"
         >
-          <hero-icon name="users" class="h-6 w-6"></hero-icon>
-          <span class="ml-2.5">Contactos</span>
-        </a>
-      </li>
-      <li class="navitem">
-        <a class="navlink" [routerLink]="['tags']" routerLinkActive="active">
-          <hero-icon name="tag" class="h-6 w-6"></hero-icon>
-          <span class="ml-2.5">Categorías</span>
+          <hero-icon [name]="link.icon" class="h-6 w-6"></hero-icon>
+          <span class="ml-2.5">{{ link.name }}</span>
         </a>
       </li>
     </ul>
@@ -42,29 +24,19 @@
   <div class="bottom-nav">
     <div class="py-4">
       <ul class="sidebar-nav">
-        <li class="navitem md:hidden block">
-          <a class="navlink" (click)="collapsed = !collapsed">
+        <li class="navitem md:block hidden">
+          <a class="navlink" (click)="collapsedSidebarToggle()">
             <hero-icon
-              [name]="'chevron-double-left'"
-              [ngClass]="{'-rotate-180 ': collapsed}"
+              [name]="collapsed ? 'arrows-expand' : 'dots-vertical'"
+              [ngClass]="{ 'rotate-180 ': collapsed }"
               class="h-6 w-6 transition-all transform"
             ></hero-icon>
-            <span class="ml-2.5">Cerrar</span>
-          </a>
-        </li>
-        <li class="navitem">
-          <a class="cursor-pointer navlink" routerLink="me">
-            <hero-icon name="cog" class="h-6 w-6"></hero-icon>
-            <span class="ml-2.5">Perfíl</span>
-          </a>
-        </li>
-        <li class="navitem">
-          <a class="cursor-pointer navlink" (click)="logOut()">
-            <hero-icon name="logout" class="h-6 w-6"></hero-icon>
-            <span class="ml-2.5">Cerrar Sesión</span>
+            <span class="ml-2.5">Colapsar</span>
           </a>
         </li>
       </ul>
     </div>
   </div>
-</div>
+</aside>
+
+<div class="sidebar-wrapper md:hidden absolute w-screen h-screen transition-opacity opacity-100 ease-elastic duration-300 bg-brand-400/20 -z-10" [ngClass]="{'opacity-0 hidden': collapsed}"></div>

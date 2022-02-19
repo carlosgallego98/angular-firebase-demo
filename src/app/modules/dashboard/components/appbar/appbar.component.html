@@ -1,17 +1,66 @@
-<div class="w-full bg-brand-200 h-16 flex items-center justify-between">
-  <ul class="sidebar-nav">
-    <li class="navitem">
-      <a class="navlink" (click)="collapsedSidebarToggle()">
-        <hero-icon
-          [name]="'chevron-double-left'"
-          [ngClass]="{ '-rotate-180 ': collapsed }"
-          class="h-6 w-6 transition-all transform"
-        ></hero-icon>
-      </a>
-    </li>
-  </ul>
+<div
+  class="w-full bg-brand-200 h-16 flex items-center justify-between absolute top-0 z-10"
+>
+  <div>
+    <div
+      class="flex items-center md:px-5 h-16 transition-width ease-elastic duration-300 delay-[20ms] md:bg-brand-300"
+      [ngClass]="collapsed ? 'md:w-[5.5rem]' : 'md:w-72'"
+    >
+      <div class="flex m-auto items-center gap-2 ml-2 md:hidden">
+        <ul class="nav nav-sm">
+          <li class="navitem">
+            <a class="navlink" (click)="collapsedSidebarToggle()">
+              <hero-icon
+                [name]="collapsed ? 'menu' : 'x'"
+                class="h-6 w-6 transition-all transform"
+              ></hero-icon>
+            </a>
+          </li>
+        </ul>
+        <i
+          class="fa-solid fa-layer-group self-center bg-white p-2.5 text-lg rounded-md text-brand"
+        ></i>
+      </div>
+      <i
+        class="fa-solid fa-layer-group hidden md:block m-auto bg-white p-2.5 text-lg rounded-md text-brand"
+      ></i>
+    </div>
+  </div>
 
   <div class="mx-4">
-    Otras cosas
+    <ul class="nav nav-sm nav-dark">
+      <li class="navitem">
+        <a
+          type="button"
+          class="navlink"
+          id="user-menu-button"
+          aria-expanded="false"
+          type="button"
+          data-dropdown-toggle="dropdown"
+        >
+          <span class="sr-only">Open user menu</span>
+          <img
+            class="md:w-10 md:h-10 md:mr-1.5 rounded-full"
+            [src]="
+              user.photoURL
+                ? user.photoURL
+                : 'https://avatars.dicebear.com/api/big-ears-neutral/{{ user.uid }}.svg'
+            "
+            alt="user photo"
+          />
+          <span class="hidden md:block">{{ user.displayName }}</span>
+        </a>
+      </li>
+      <li class="navitem">
+        <a class="cursor-pointer navlink" routerLink="me">
+          <hero-icon name="cog" class="h-6 w-6"></hero-icon>
+        </a>
+      </li>
+      <li class="navitem">
+        <a class="cursor-pointer navlink" (click)="logOutEvent()">
+          <hero-icon name="logout" class="h-6 w-6"></hero-icon>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>

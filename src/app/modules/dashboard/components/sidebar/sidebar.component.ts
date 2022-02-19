@@ -1,36 +1,60 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '@angular/fire/auth';
-import { AuthService } from 'src/app/core/services/auth.service';
-import { SidebarService } from '../../services/sidebar.service';
+import { HeroIconName } from 'ng-heroicon';
+import { NgxTippyProps } from 'ngx-tippy-wrapper';
+
+type Link = {
+  name: string,
+  icon: HeroIconName,
+  route: string,
+  disabled?: boolean,
+  children?: Link[]
+}
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  public user!: User;
-  public collapsed: boolean = false;
 
-  constructor(public authService: AuthService, private router: Router, private sidebarService: SidebarService) {
-    this.authService.user ? this.user = this.authService.user : null;
-    this.sidebarService.collapsedSidebar.subscribe((value) => {
-      this.collapsed = value;
-    });
+  @HostBinding('class.collapsed')
+  @Input('collapsed') collapsed!: boolean;
+
+  @Output() toggleCollapsed = new EventEmitter();
+
+  public sidebarTippyProps: NgxTippyProps = {
+    offset: [0, 20],
+    arrow: false,
+    placement: 'right'
+  };
+  public links: Link[] = [
+    {
+      name: 'Inicio',
+      icon: 'home',
+      route: 'home'
+    },
+    {
+      name: 'Usuarios',
+      icon: 'users',
+      route: 'users'
+    },
+    {
+      name: 'Grupos',
+      icon: 'tag',
+      route: 'groups'
+    },
+  ];
+
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
+
   }
 
   collapsedSidebarToggle() {
-    this.sidebarService.toggleSidebar(!this.collapsed);
+    this.collapsed = !this.collapsed;
+    this.toggleCollapsed.emit(this.collapsed);
   }
 
-  logOut(): void {
-    this.authService.logOut().then(
-      () => {
-        this.router.navigate(['./auth'])
-      }
-    )
-  }
 }

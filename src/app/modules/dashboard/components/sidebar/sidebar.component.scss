@@ -1,11 +1,17 @@
-#sidebar.full-width {
-  @apply w-72 transition-width ease-elastic duration-300;
+:host {
+  @apply h-screen;
+  #sidebar {
+    @apply w-72 fixed inset-0 flex-none h-full md:static md:flex transition-width ease-elastic duration-300;
+  }
 }
-#sidebar.collapsed {
-  @apply md:w-[5.5rem] w-0 ease-elastic  transition-width duration-300;
+
+:host.collapsed {
+  #sidebar {
+    @apply md:w-[5.5rem] w-0 ease-elastic transition-width duration-300;
+  }
   .sidebar-nav > .navitem > .navlink > span,
   .sidebar-brand span {
-    @apply hidden transition-display delay-150;
+    @apply hidden opacity-0 transition-opacity ease-elastic duration-700 delay-75;
   }
 }
 
@@ -15,6 +21,9 @@
     @apply relative my-1.5;
     .navlink {
       @apply flex cursor-pointer items-center py-4 px-4 h-12 overflow-hidden text-center text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-brand-900 font-bold hover:bg-brand-100 transition duration-300 ease-in-out;
+      span {
+        @apply opacity-100;
+      }
       &.active {
         @apply bg-brand-100 text-brand-800;
         &:after {

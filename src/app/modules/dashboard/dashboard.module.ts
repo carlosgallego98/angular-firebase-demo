@@ -11,12 +11,18 @@ import {
   users,
   tag,
   cog,
+  x,
+  menu,
+  dotsVertical,
+  arrowsExpand,
   collection,
   chevronDoubleRight,
   chevronDoubleLeft,
   logout, HeroIconModule
 } from 'ng-heroicon';
 import { AppbarComponent } from './components/appbar/appbar.component';
+import { NgxTippyModule } from 'ngx-tippy-wrapper';
+import { SidebarService } from './services/sidebar.service';
 
 
 @NgModule({
@@ -30,11 +36,16 @@ import { AppbarComponent } from './components/appbar/appbar.component';
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
+    NgxTippyModule,
     HeroIconModule.forRoot({
       home,
       users,
       tag,
+      menu,
+      x,
       cog,
+      dotsVertical,
+      arrowsExpand,
       collection,
       logout,
       chevronDoubleRight,
@@ -43,6 +54,7 @@ import { AppbarComponent } from './components/appbar/appbar.component';
       defaultHostDisplay: 'inlineBlock', // default 'none'
       attachDefaultDimensionsIfNoneFound: true // default 'false'
     })
-  ]
+  ],
+  providers: [SidebarService],
 })
 export class DashboardModule { }

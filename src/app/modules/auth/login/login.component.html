@@ -1,63 +1,60 @@
-<div class="flex h-screen">
-  <app-card class="m-auto lg:h-[650px] w-full min-h-3/5 lg:w-1/2 sm:w-3/4 p-4">
-    <div class="flex md:flex-row flex-col h-full">
-      <div class="md:h-full h-32 md:w-2/3 w-full">
-        <img
-          src="assets/images/login-bg.png"
-          class="h-full w-full object-cover md:rounded-l-md rounded-t-md"
-          alt="login background gradient"
-        />
+<app-card class="auth-card">
+  <div class="flex-container">
+    <div class="flex-container--img">
+      <img src="assets/images/login-bg.png" alt="login background gradient" />
+    </div>
+
+    <div class="flex-container--form">
+      <div class="mb-4">
+        <h4 class="font-extrabold text-3xl text-brand">Iniciar Sesión</h4>
+        <p class="font-light text-gray-600">Inicia sesión con tu cuenta</p>
       </div>
-      <div class="w-full px-12 py-12 self-center flex flex-col">
-        <div class="mb-4">
-          <h4 class="font-extrabold text-3xl text-brand">Iniciar Sesión</h4>
-          <p class="font-light text-gray-600">Inicia sesión con tu cuenta</p>
-        </div>
-        <form
-          class="w-full py-8"
-          autocomplete="nope"
-          [formGroup]="loginForm"
-          (ngSubmit)="login()"
-        >
-          <div class="mb-8">
-            <app-input
-              name="email"
-              placeholder="Correo"
-              [parent]="loginForm"
-            ></app-input>
-            <app-input
-              name="password"
-              placeholder="Contraseña"
-              type="password"
-              [parent]="loginForm"
-            ></app-input>
+      <form
+        class="w-full py-8"
+        autocomplete="nope"
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+      >
+        <div class="mb-8">
+          <app-input
+            name="email"
+            placeholder="Correo"
+            [parent]="loginForm"
+          ></app-input>
+          <app-input
+            name="password"
+            placeholder="Contraseña"
+            type="password"
+            [parent]="loginForm"
+          ></app-input>
 
-            <ng-container *ngIf="errorMessage">
-              <span class="text-red-500 font-medium transition-all"
-              >{{errorMessage}}
+          <ng-container *ngIf="errorMessage">
+            <span class="text-red-500 font-medium transition-all"
+              >{{ errorMessage }}
             </span>
-            </ng-container>
-          </div>
-
-          <app-button [loading]="loading" [block]="true" type="submit" [disabled]="!loginForm.valid"
-            >Iniciar Sesión</app-button
-          >
-        </form>
-        <hr />
-        <div class="mt-4">
-          <p class="my-2">
-            ¿No tienes cuenta?
-            <a [routerLink]="['../', 'register']" class="font-bold"
-              >Regístrate aqui</a
-            >
-          </p>
-          <p class="my-2">
-            <a [routerLink]="['../', 'account-recovery']"
-              >Olvidé mi contraseña</a
-            >
-          </p>
+          </ng-container>
         </div>
+
+        <app-button
+          [loading]="loading"
+          [block]="true"
+          type="submit"
+          [disabled]="!loginForm.valid"
+          >Iniciar Sesión</app-button
+        >
+      </form>
+      <hr />
+      <div class="mt-4">
+        <p class="my-2">
+          ¿No tienes cuenta?
+          <a [routerLink]="['../', 'register']" class="font-bold"
+            >Regístrate aqui</a
+          >
+        </p>
+        <p class="my-2">
+          <a [routerLink]="['../', 'account-recovery']">Olvidé mi contraseña</a>
+        </p>
       </div>
     </div>
-  </app-card>
-</div>
+  </div>
+</app-card>

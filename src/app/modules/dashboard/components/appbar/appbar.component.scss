@@ -1,7 +1,15 @@
-.sidebar-nav {
-  @apply px-4;
+.nav {
+  &.nav-sm .navitem .navlink {
+    @apply py-2 px-2;
+  }
+
+  &.nav-dark .navitem .navlink {
+    @apply text-brand-900 hover:text-brand-500;
+  }
+
+  @apply flex flex-row;
   .navitem {
-    @apply relative my-1.5;
+    @apply mx-px;
     .navlink {
       @apply flex cursor-pointer items-center py-4 px-4 h-12 overflow-hidden text-center text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-brand-900 font-bold hover:bg-brand-100 transition duration-300 ease-in-out;
       &.active {
