@@ -36,7 +36,6 @@ import { SidebarService } from './services/sidebar.service';
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    NgxTippyModule,
     HeroIconModule.forRoot({
       home,
       users,

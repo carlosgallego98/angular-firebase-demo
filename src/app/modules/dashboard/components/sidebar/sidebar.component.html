@@ -1,5 +1,5 @@
 <aside
-  class="flex w-72 flex-col justify-between overflow-x-hidden bg-white rounded-br-xl shadow-md shadow-brand-800/40 z-0"
+  class="flex w-72 flex-col justify-between overflow-x-hidden bg-white rounded-br-xl shadow-md z-0"
   id="sidebar"
 >
   <div class="mt-20">
@@ -39,4 +39,4 @@
   </div>
 </aside>
 
-<div class="sidebar-wrapper md:hidden absolute w-screen h-screen transition-opacity opacity-100 ease-elastic duration-300 bg-brand-400/20 -z-10" [ngClass]="{'opacity-0 hidden': collapsed}"></div>
+<div class="sidebar-wrapper md:hidden absolute w-screen h-screen bg-brand-400/20 -z-10" [ngClass]="{'hidden': collapsed}"></div>

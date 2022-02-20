@@ -12,7 +12,7 @@ import { refresh, HeroIconModule } from 'ng-heroicon';
     CardComponent,
     ButtonComponent,
     InputComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,
