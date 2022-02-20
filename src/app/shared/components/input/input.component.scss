@@ -1,5 +1,5 @@
 input.ng-invalid.ng-touched {
-  @apply bg-red-100 border-red-400 text-red-700;
+  @apply border-red-400 text-red-700 dark:text-red-100  ;
 }
 
 .label-floating input:not(:placeholder-shown),
@@ -12,7 +12,7 @@ input.ng-invalid.ng-touched {
   font-size: 0.8rem;
   transition: all 0.2s ease-in-out;
   opacity: 1;
-  @apply text-brand-600
+  @apply text-brand-600 dark:text-brand-200
 }
 
 .error-message {

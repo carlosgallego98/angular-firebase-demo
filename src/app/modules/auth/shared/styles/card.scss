@@ -3,7 +3,7 @@
 }
 
 .auth-card {
-  @apply m-auto w-full  lg:max-w-5xl px-2 lg:p-0;
+  @apply m-auto w-full lg:max-w-5xl px-2 lg:p-0;
   .flex-container {
     @apply flex md:flex-row flex-col h-full;
     .flex-container--img {

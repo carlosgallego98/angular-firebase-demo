@@ -20,12 +20,12 @@
   .navitem {
     @apply relative my-1.5;
     .navlink {
-      @apply flex cursor-pointer items-center py-4 px-4 h-12 overflow-hidden text-center text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-brand-900 font-bold hover:bg-brand-100 transition duration-300 ease-in-out;
+      @apply flex cursor-pointer items-center py-4 px-4 h-12 overflow-hidden text-center text-gray-700 text-ellipsis whitespace-nowrap font-bold rounded hover:text-brand-900  dark:hover:bg-brand-dark-100 dark:hover:text-brand-dark-900  hover:bg-brand-100 transition duration-300 ease-in-out dark:text-brand-dark-100;
       span {
         @apply opacity-100;
       }
       &.active {
-        @apply bg-brand-100 text-brand-800;
+        @apply bg-brand-100 dark:bg-brand-dark-100 dark:text-brand-dark-600 text-brand-800;
         &:after {
           @apply absolute inset-y-0 right-0 w-8 h-full bg-brand-500 transform -translate-x-1/2;
         }

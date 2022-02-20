@@ -1,9 +1,9 @@
 <div
-  class="w-full bg-brand-200 h-16 flex items-center justify-between absolute top-0 z-10"
+  class="w-full dark:md:bg-brand-dark-400 h-16 flex items-center justify-between absolute top-0 z-10"
 >
   <div>
     <div
-      class="flex items-center md:px-5 h-16 transition-width ease-elastic duration-300 delay-[20ms] md:bg-brand-300"
+      class="flex items-center md:px-5 h-16 transition-width ease-elastic duration-300 delay-[20ms] md:bg-brand-300 dark:md:bg-brand-dark-600/40"
       [ngClass]="collapsed ? 'md:w-[5.5rem]' : 'md:w-72'"
     >
       <div class="flex m-auto items-center gap-2 ml-2 md:hidden">
@@ -79,14 +79,14 @@
 
     <div
       #dropdownContent
-      class="dropdown-content transition-all ease-elasticz-10 w-44 text-base list-none bg-brand-50 border-[1px] rounded divide-y divide-brand-100 shadow closed"
+      class="dropdown-content transition-all ease-elasticz-10 w-44 text-base list-none bg-brand-50 dark:bg-brand-dark-400 border-[1px] dark:border-brand-dark-300 rounded divide-y divide-brand-dark-600 shadow closed"
     >
       <div class="py-3 px-4">
-        <span class="block font-bold tracking-wide text-sm text-brand-500">{{
+        <span class="block font-bold tracking-wide text-sm text-brand-500 dark:text-brand-dark-100">{{
           user.displayName
         }}</span>
         <span
-          class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400"
+          class="block text-sm font-medium text-gray-500 truncate dark:text-brand-dark-50"
           >{{ user.email }}</span
         >
       </div>
@@ -94,14 +94,14 @@
         <li>
           <a
             [routerLink]="'profile'"
-            class="flex items-center py-2.5 px-4 text-sm text-gray-700 font-medium"
+            class="flex items-center py-2.5 px-4 text-sm text-gray-700 dark:text-white dark:hover:text-brand-dark-200 font-medium"
             ><hero-icon name="cog" class="h-5 w-5"></hero-icon>Perfil</a
           >
         </li>
         <li>
           <a
             (click)="logOutEvent()"
-            class="flex items-center py-2.5 px-4 text-sm text-gray-700 font-medium"
+            class="cursor-pointer flex items-center py-2.5 px-4 text-sm text-gray-700 dark:text-white dark:hover:text-brand-dark-200 font-medium"
           >
             <hero-icon name="logout" class="h-5 w-5"></hero-icon>
             Cerrar Sesión</a
