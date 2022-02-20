@@ -8,16 +8,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  logOut(): void {
-    this.authService.logOut().then(
-      () => {
-        this.router.navigate(['./auth'])
-      }
-    )
   }
 }

@@ -1,0 +1,19 @@
+:host {
+  @apply flex h-screen;
+}
+
+.auth-card {
+  @apply m-auto w-full  lg:max-w-5xl px-2 lg:p-0;
+  .flex-container {
+    @apply flex md:flex-row flex-col h-full;
+    .flex-container--img {
+      @apply md:w-2/3 w-full;
+      img {
+        @apply max-h-32 h-full md:max-h-full w-full object-cover md:rounded-l-md rounded-t-md;
+      }
+    }
+    .flex-container--form {
+      @apply w-full px-6 py-8 lg:p-12 self-center flex flex-col;
+    }
+  }
+}

@@ -7,7 +7,7 @@ import { FirebaseErrors } from 'src/app/shared/classes/FirebaseErrors';
 
 @Component({
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
       'email': new FormControl('', [Validators.required, Validators.email]),
-      'password': new FormControl('', [Validators.required, Validators.minLength(6)]),
+      'password': new FormControl('', [Validators.required]),
     });
   }
 
@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    if(this.loginForm.invalid) return;
     this.loading = true;
     const { email, password } = this.loginForm.value;
     this.authService.loginWithEmailAndPassword(email, password)

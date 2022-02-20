@@ -1,0 +1,42 @@
+<aside
+  class="flex w-72 flex-col justify-between overflow-x-hidden bg-white rounded-br-xl shadow-md z-0"
+  id="sidebar"
+>
+  <div class="mt-20">
+
+    <ul class="sidebar-nav">
+      <li
+        class="navitem"
+        *ngFor="let link of links"
+      >
+        <a
+          class="navlink"
+          [routerLink]="[link.route]"
+          routerLinkActive="active"
+        >
+          <hero-icon [name]="link.icon" class="h-6 w-6"></hero-icon>
+          <span class="ml-2.5">{{ link.name }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="py-4">
+      <ul class="sidebar-nav">
+        <li class="navitem md:block hidden">
+          <a class="navlink" (click)="collapsedSidebarToggle()">
+            <hero-icon
+              [name]="collapsed ? 'arrows-expand' : 'dots-vertical'"
+              [ngClass]="{ 'rotate-180 ': collapsed }"
+              class="h-6 w-6 transition-all transform"
+            ></hero-icon>
+            <span class="ml-2.5">Colapsar</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</aside>
+
+<div class="sidebar-wrapper md:hidden absolute w-screen h-screen bg-brand-400/20 -z-10" [ngClass]="{'hidden': collapsed}"></div>

@@ -11,7 +11,6 @@ import { ResetVerifyComponent } from './reset-verify/reset-verify.component';
 import { ResetPasswordComponent } from './reset-verify/reset-password/reset-password.component';
 import { VerifyEmailComponent } from './reset-verify/verify-email/verify-email.component';
 
-
 @NgModule({
   declarations: [
     LoginComponent,
@@ -19,7 +18,7 @@ import { VerifyEmailComponent } from './reset-verify/verify-email/verify-email.c
     AccountRecoveryComponent,
     ResetVerifyComponent,
     ResetPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
   ],
   imports: [
     CommonModule,

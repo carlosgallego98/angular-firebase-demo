@@ -1,0 +1,113 @@
+<div
+  class="w-full bg-brand-200 h-16 flex items-center justify-between absolute top-0 z-10"
+>
+  <div>
+    <div
+      class="flex items-center md:px-5 h-16 transition-width ease-elastic duration-300 delay-[20ms] md:bg-brand-300"
+      [ngClass]="collapsed ? 'md:w-[5.5rem]' : 'md:w-72'"
+    >
+      <div class="flex m-auto items-center gap-2 ml-2 md:hidden">
+        <ul class="nav nav-sm">
+          <li class="navitem">
+            <a class="navlink" (click)="collapsedSidebarToggle()">
+              <hero-icon
+                [name]="collapsed ? 'menu' : 'x'"
+                class="h-6 w-6 transition-all transform"
+              ></hero-icon>
+            </a>
+          </li>
+        </ul>
+        <i
+          class="fa-solid fa-layer-group self-center bg-white p-2.5 text-lg rounded-md text-brand"
+        ></i>
+      </div>
+      <i
+        class="fa-solid fa-layer-group hidden md:block m-auto bg-white p-2.5 text-lg rounded-md text-brand"
+      ></i>
+    </div>
+  </div>
+
+  <div class="mx-4 hidden lg:block">
+    <ul class="nav nav-sm nav-dark">
+      <li class="navitem hidden lg:block">
+        <a type="button" [routerLink]="'profile'" class="navlink" type="button">
+          <span class="sr-only">Open user menu</span>
+          <img
+            class="md:w-10 md:h-10 md:mr-1.5 rounded-full"
+            [src]="
+              user.photoURL
+                ? user.photoURL
+                : 'https://avatars.dicebear.com/api/big-ears-neutral/{{ user.uid }}.svg'
+            "
+            alt="user photo"
+          />
+          <span class="hidden md:block">{{ user.displayName }}</span>
+        </a>
+      </li>
+      <li class="navitem hidden lg:block">
+        <a class="cursor-pointer navlink" (click)="logOutEvent()">
+          <hero-icon name="logout" class="h-6 w-6"></hero-icon>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="dropdown lg:hidden inline-block" #dropdownWrapper>
+    <ul class="nav nav-sm nav-dark mr-2">
+      <li class="navitem lg:hidden inline-block">
+        <a
+          type="button"
+          #dropdownButton
+          (click)="userDropdownToggle()"
+          class="dropdown-toggle navlink"
+          type="button"
+        >
+          <span class="sr-only">Open user menu</span>
+          <img
+            class="h-8 w-8 rounded-full"
+            [src]="
+              user.photoURL
+                ? user.photoURL
+                : 'https://avatars.dicebear.com/api/big-ears-neutral/{{ user.uid }}.svg'
+            "
+            alt="user photo"
+          />
+          <span class="hidden md:block">{{ user.displayName }}</span>
+        </a>
+      </li>
+    </ul>
+
+    <div
+      #dropdownContent
+      class="dropdown-content transition-all ease-elasticz-10 w-44 text-base list-none bg-brand-50 border-[1px] rounded divide-y divide-brand-100 shadow closed"
+    >
+      <div class="py-3 px-4">
+        <span class="block font-bold tracking-wide text-sm text-brand-500">{{
+          user.displayName
+        }}</span>
+        <span
+          class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400"
+          >{{ user.email }}</span
+        >
+      </div>
+      <ul class="py-1 text-center" aria-labelledby="dropdown">
+        <li>
+          <a
+            [routerLink]="'profile'"
+            class="flex items-center py-2.5 px-4 text-sm text-gray-700 font-medium"
+            ><hero-icon name="cog" class="h-5 w-5"></hero-icon>Perfil</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="logOutEvent()"
+            class="flex items-center py-2.5 px-4 text-sm text-gray-700 font-medium"
+          >
+            <hero-icon name="logout" class="h-5 w-5"></hero-icon>
+            Cerrar Sesión</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

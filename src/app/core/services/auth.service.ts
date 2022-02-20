@@ -1,17 +1,24 @@
 import { Injectable } from '@angular/core';
-import { User, Auth, authState, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile,GoogleAuthProvider, signInWithPopup, signOut, sendPasswordResetEmail, confirmPasswordReset } from '@angular/fire/auth';
-import { EMPTY, Observable } from 'rxjs';
+import { Auth, authState, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signOut, sendPasswordResetEmail, confirmPasswordReset, user } from '@angular/fire/auth';
+import { doc, setDoc, Firestore } from '@angular/fire/firestore';
+import { User } from '../interfaces/user'
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  public user$: Observable<User | null> = EMPTY;
-  constructor(private auth: Auth) {
-    this.user$ = authState(this.auth);
+  constructor(private auth: Auth, private fs: Firestore) {
+    authState(this.auth);
+  }
+
+  get user() {
+    return this.auth.currentUser;
   }
 
   async loginWithEmailAndPassword(email: string, password: string) {
     return await signInWithEmailAndPassword(this.auth, email, password);
+      // .then((result) => {
+      //   this.setUserData(result.user);
+      // });
   }
 
   async registerWithEmailAndPassword(name: string, email: string, password: string) {
@@ -20,6 +27,7 @@ export class AuthService {
         updateProfile(result.user, {
           displayName: name
         });
+        this.setUserData(result.user);
         return result;
       }
     )
@@ -30,11 +38,25 @@ export class AuthService {
   }
 
   async confirmPasswordReset(obbCode: string, newPassword: string) {
-    return await confirmPasswordReset(this.auth,obbCode, newPassword);
+    return await confirmPasswordReset(this.auth, obbCode, newPassword);
   }
 
   async logOut() {
     return await signOut(this.auth);
   }
 
+  setUserData(user: any) {
+    const userRef = doc(this.fs, `users/${user.uid}`);
+    const userData: User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified
+    }
+
+    setDoc(userRef, userData, {
+      merge: true
+    })
+  }
 }
