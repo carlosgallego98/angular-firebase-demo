@@ -18,12 +18,29 @@ import {
   collection,
   chevronDoubleRight,
   chevronDoubleLeft,
-  logout, HeroIconModule
+  logout, HeroIconModule, save
 } from 'ng-heroicon';
 import { AppbarComponent } from './components/appbar/appbar.component';
-import { NgxTippyModule } from 'ngx-tippy-wrapper';
 import { SidebarService } from './services/sidebar.service';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+const icons = {
+  home,
+  users,
+  tag,
+  menu,
+  x,
+  cog,
+  dotsVertical,
+  arrowsExpand,
+  collection,
+  logout,
+  save,
+  chevronDoubleRight,
+  chevronDoubleLeft,
+}
 
 @NgModule({
   declarations: [
@@ -31,25 +48,16 @@ import { SidebarService } from './services/sidebar.service';
     SidebarComponent,
     DashboardComponent,
     AppbarComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    HeroIconModule.forRoot({
-      home,
-      users,
-      tag,
-      menu,
-      x,
-      cog,
-      dotsVertical,
-      arrowsExpand,
-      collection,
-      logout,
-      chevronDoubleRight,
-      chevronDoubleLeft,
-    }, {
+    ReactiveFormsModule,
+    FormsModule,
+    HeroIconModule.forRoot(
+      icons, {
       defaultHostDisplay: 'inlineBlock', // default 'none'
       attachDefaultDimensionsIfNoneFound: true // default 'false'
     })

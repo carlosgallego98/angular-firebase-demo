@@ -1,6 +1,7 @@
 module.exports = {
   content: [
     "./src/app/**/*.{html,ts}",
+    // './node_modules/tw-elements/dist/js/**/*.js'
   ],
   theme: {
     // screens: {
@@ -25,20 +26,22 @@ module.exports = {
       colors: {
         'body': '#293241',
         'brand': {
-          DEFAULT: '#69D981',
-          '50': '#FBFEFC',
-          '100': '#EBFAEE',
-          '200': '#CAF2D3',
-          '300': '#AAE9B7',
-          '400': '#89E19C',
-          '500': '#69D981',
-          '600': '#3CCD5B',
-          '700': '#2AA745',
-          '800': '#1F7A33',
-          '900': '#144D20'
+          DEFAULT: '#7A75D1',
+          '50': '#FFFFFF',
+          '100': '#F0EFFA',
+          '200': '#D2D1F0',
+          '300': '#B5B2E5',
+          '400': '#9794DB',
+          '500': '#7A75D1',
+          '600': '#514BC3',
+          '700': '#3B35A0',
+          '800': '#2C2776',
+          '900': '#1C194C'
         },
       }
     },
   },
-  plugins: [],
+  plugins: [
+    // require('tw-elements/dist/plugin')
+  ],
 }

@@ -3,18 +3,14 @@
   id="sidebar"
 >
   <div class="mt-20">
-
     <ul class="sidebar-nav">
-      <li
-        class="navitem"
-        *ngFor="let link of links"
-      >
+      <li class="navitem" *ngFor="let link of links">
         <a
           class="navlink"
           [routerLink]="[link.route]"
           routerLinkActive="active"
         >
-          <hero-icon [name]="link.icon" class="h-6 w-6"></hero-icon>
+          <i class="uil uil-{{ link.icon }} text-2xl"></i>
           <span class="ml-2.5">{{ link.name }}</span>
         </a>
       </li>
@@ -39,4 +35,7 @@
   </div>
 </aside>
 
-<div class="sidebar-wrapper md:hidden absolute w-screen h-screen bg-brand-400/20 -z-10" [ngClass]="{'hidden': collapsed}"></div>
+<div
+  class="sidebar-wrapper md:hidden absolute w-screen h-screen bg-brand-400/20 -z-10"
+  [ngClass]="{ hidden: collapsed }"
+></div>

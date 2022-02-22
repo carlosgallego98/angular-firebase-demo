@@ -8,8 +8,8 @@
     <hero-icon
       *ngIf="icon && !loading"
       [name]="icon"
-      [type]="'solid'"
-      [class]="'w-4 h-4 animate-spin'"
+      [type]="iconType"
+      [class]="'w-4 h-4'"
     ></hero-icon>
     <hero-icon
       *ngIf="loading"
@@ -17,7 +17,6 @@
       [type]="'outline'"
       [class]="'w-4 h-4 animate-spin'"
     ></hero-icon>
-
-    <ng-content *ngIf="!loading"></ng-content>
+    <ng-content></ng-content>
   </div>
 </button>

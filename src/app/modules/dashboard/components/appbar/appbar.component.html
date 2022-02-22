@@ -3,13 +3,17 @@
 >
   <div>
     <div
-      class="flex items-center md:px-5 h-16 transition-width ease-elastic duration-300 delay-[20ms] md:bg-brand-300"
+      class="flex md:fixed md:top-0 items-center md:px-5 h-16 transition-width ease-elastic duration-300 delay-[20ms] md:bg-brand-300"
       [ngClass]="collapsed ? 'md:w-[5.5rem]' : 'md:w-72'"
     >
       <div class="flex m-auto items-center gap-2 ml-2 md:hidden">
         <ul class="nav nav-sm">
           <li class="navitem">
-            <a class="navlink" (click)="collapsedSidebarToggle()">
+            <a
+              id="collapse-sidebar-button"
+              class="navlink"
+              (click)="collapsedSidebarToggle()"
+            >
               <hero-icon
                 [name]="collapsed ? 'menu' : 'x'"
                 class="h-6 w-6 transition-all transform"
@@ -18,11 +22,11 @@
           </li>
         </ul>
         <i
-          class="fa-solid fa-layer-group self-center bg-white p-2.5 text-lg rounded-md text-brand"
+          class="uil uil-diary-alt self-center bg-white p-2.5 text-lg rounded-md text-brand"
         ></i>
       </div>
       <i
-        class="fa-solid fa-layer-group hidden md:block m-auto bg-white p-2.5 text-lg rounded-md text-brand"
+        class="uil uil-diary-alt hidden md:block m-auto bg-white p-2 text-2xl rounded-md text-brand"
       ></i>
     </div>
   </div>

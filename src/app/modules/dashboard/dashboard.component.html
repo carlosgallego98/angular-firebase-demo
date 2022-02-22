@@ -1,10 +1,11 @@
-<app-bar [user]="user" (logOut)="logOut()"></app-bar>
+<app-bar [user]="user" [collapsed]="collapsed" (logOut)="logOut()"></app-bar>
 <div class="lg:flex">
   <app-sidebar
     [collapsed]="collapsed"
     (toggleCollapsed)="toggleCollapsed($event)"
   ></app-sidebar>
-  <div class="flex-1">
+  <div class="flex-1 mt-16 transition-all"
+  [ngClass]="collapsed ? 'md:ml-[5.5rem]' : 'md:ml-72'">
     <router-outlet></router-outlet>
   </div>
 </div>

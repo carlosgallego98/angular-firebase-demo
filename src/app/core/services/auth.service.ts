@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, authState, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signOut, sendPasswordResetEmail, confirmPasswordReset, user } from '@angular/fire/auth';
-import { doc, setDoc, Firestore } from '@angular/fire/firestore';
-import { User } from '../interfaces/user'
+import { doc, setDoc, Firestore, collection } from '@angular/fire/firestore';
+import { User } from '../models/user'
 @Injectable({
   providedIn: 'root'
 })
@@ -14,11 +14,15 @@ export class AuthService {
     return this.auth.currentUser;
   }
 
+  userDoc(uid: string) {
+    return doc(this.fs, `users/${uid}`);
+  }
+
   async loginWithEmailAndPassword(email: string, password: string) {
     return await signInWithEmailAndPassword(this.auth, email, password);
-      // .then((result) => {
-      //   this.setUserData(result.user);
-      // });
+    // .then((result) => {
+    //   this.setUserData(result.user);
+    // });
   }
 
   async registerWithEmailAndPassword(name: string, email: string, password: string) {

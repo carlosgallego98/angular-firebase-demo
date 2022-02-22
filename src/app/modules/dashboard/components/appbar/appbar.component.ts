@@ -8,17 +8,16 @@ import { createPopper } from '@popperjs/core';
   templateUrl: './appbar.component.html',
   styleUrls: ['./appbar.component.scss'],
 })
-export class AppbarComponent implements OnInit, AfterViewInit {
+export class AppbarComponent {
 
-  public collapsed!: boolean;
+  @Input() collapsed!: boolean;
   @Input() user!: User;
   @Output() logOut = new EventEmitter();
 
-
-
-
-
   constructor(private sidebarService: SidebarService) {
+    this.sidebarService.getCollapsedState().subscribe((value) => {
+      this.collapsed = value;
+    });
   }
 
   // Esto es lógica para el dropdown de usuario que puede ser movido a un componente aparte
@@ -50,12 +49,6 @@ export class AppbarComponent implements OnInit, AfterViewInit {
     });
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////
-
-  ngOnInit(): void {
-    this.sidebarService.getCollapsedState().subscribe((value) => {
-      this.collapsed = value;
-    });
-  }
 
   collapsedSidebarToggle() {
     this.collapsed = !this.collapsed;

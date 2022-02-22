@@ -1,7 +1,7 @@
 :host {
   @apply h-screen;
   #sidebar {
-    @apply w-72 fixed inset-0 flex-none h-full md:static md:flex transition-width ease-elastic duration-300;
+    @apply md:w-72 fixed inset-0 flex-none h-full  md:fixed md:top-0  transition-width ease-elastic duration-300;
   }
 }
 

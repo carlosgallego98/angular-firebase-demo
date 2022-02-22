@@ -9,6 +9,11 @@ export class SidebarService {
 
   toggleSidebar(value: boolean) {
     this.collapsedSidebar.next(value);
+    if (!value) {
+      document.getElementsByTagName('body')[0].classList.add('backdrop-visible');
+    } else {
+      document.getElementsByTagName('body')[0].classList.remove('backdrop-visible');
+    }
   }
 
   getCollapsedState() {

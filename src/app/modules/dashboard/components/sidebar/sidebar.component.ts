@@ -1,11 +1,11 @@
-import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeroIconName } from 'ng-heroicon';
 import { NgxTippyProps } from 'ngx-tippy-wrapper';
 
 type Link = {
   name: string,
-  icon: HeroIconName,
+  icon: string,
   route: string,
   disabled?: boolean,
   children?: Link[]
@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
     },
     {
       name: 'Usuarios',
-      icon: 'users',
+      icon: 'users-alt',
       route: 'users'
     },
     {

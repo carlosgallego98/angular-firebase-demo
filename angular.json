@@ -29,7 +29,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": [
-              "./node_modules/@fortawesome/fontawesome-free/js/all.min.js"
+              "./node_modules/tw-elements/dist/js/index.min.js"
             ]
           },
           "configurations": {

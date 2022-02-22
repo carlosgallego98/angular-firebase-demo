@@ -6,7 +6,10 @@
 @tailwind utilities;
 @layer base {
     body {
-        @apply font-nunito bg-brand-100/30;
+        @apply font-nunito bg-brand-100;
+        &.backdrop-visible {
+          @apply overflow-hidden md:overflow-auto;
+        }
     }
     a {
         @apply text-brand-500 hover:text-brand-700;

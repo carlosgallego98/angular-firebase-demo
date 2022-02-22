@@ -1,0 +1,78 @@
+<div class="md:px-20 px-2.5 py-4">
+  <div class="flex justify-between items-center mb-8">
+    <div>
+      <h2
+        class="md:text-3xl mt-3 text-body text-xl font-extrabold tracking-wide"
+      >
+        Perfíl
+      </h2>
+    </div>
+    <div></div>
+  </div>
+  <app-card [body]="true">
+    <h4 class="font-bold text-xl">Editar perfíl</h4>
+    <p class="text-gray-400 text-sm">
+      Modifica la información de tu perfíl aqui.
+    </p>
+    <hr class="my-4 border-brand-100" />
+    <div class="md:px-8 px-5">
+      <div class="mb-8">
+        <h5 class="font-bold text-brand-600">Imagen de Perfíl</h5>
+        <form class="flex items-center space-x-6 py-8">
+          <div class="shrink-0">
+            <img
+              class="h-24 w-24 object-cover rounded-full"
+              [src]="
+                user.photoURL
+                  ? user.photoURL
+                  : 'https://avatars.dicebear.com/api/big-ears-neutral/{{ user.uid }}.svg'
+              "
+              alt="Current profile photo"
+            />
+          </div>
+          <label class="block">
+            <span class="sr-only">Choose profile photo</span>
+            <input
+              type="file"
+              class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100"
+            />
+          </label>
+        </form>
+      </div>
+
+      <div class="mb-8">
+        <h5 class="font-bold text-brand-600">Información Básica</h5>
+        <form
+          class="py-8"
+          [formGroup]="updateProfileForm"
+          (ngSubmit)="onUpdateProfile()"
+        >
+          <app-input
+            type="text"
+            [parent]="updateProfileForm"
+            name="name"
+            placeholder="Nombre"
+          ></app-input>
+
+          <app-input
+            type="email"
+            [parent]="updateProfileForm"
+            name="email"
+            placeholder="Correo electrónico"
+          ></app-input>
+
+          <div class="mt-4">
+            <app-button
+              [type]="'submit'"
+              [iconType]="'outline'"
+              [icon]="'save'"
+              [disabled]="!this.updateProfileForm.dirty"
+              [loading]="loading"
+              >Guardar</app-button
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </app-card>
+</div>

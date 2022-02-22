@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@dicebear/avatars": "^4.10.2",
+    "@dicebear/avatars-initials-sprites": "^4.10.2",
     "@fortawesome/angular-fontawesome": "^0.10.1",
     "@fortawesome/fontawesome-free": "^6.0.0",
     "@fortawesome/fontawesome-svg-core": "~1.2.36",
@@ -27,13 +29,12 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@narik/custom-validators": "^7.0.1",
     "@popperjs/core": "^2.11.2",
-    "animate.css": "^4.1.1",
     "firebase": "^9.4.0",
     "ng-heroicon": "^2.0.0",
-    "ngx-tippy-wrapper": "^4.0.1",
     "rxfire": "^6.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "tw-elements": "^1.0.0-alpha11",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
